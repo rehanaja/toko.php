@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toko Asyik Banget</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
@@ -27,29 +27,34 @@
 
                 <li>
                     <label for="pesan">No. Pesanan</label>
-                    :<input type="number" name="pesan" id="pesan" min="1" required>
+                    <span>:</span>
+                    <input type="number" name="pesan" id="pesan" min="1" required>
                 </li>
                 <li>
                     <label for="date">Tanggal</label>
-                    :<?= date("l, d-M-Y"); ?>
+                    <span>:</span>
+                    <?= date("l, d-M-Y"); ?>
                 </li>
                 
                 <?php garis() ?>
 
                 <li>
                     <label for="nama">Nama Konsumen</label>
-                    :<input type="text" name="nama" id="nama" required>
+                    <span>:</span>
+                    <input type="text" name="nama" id="nama" required>
                 </li>
                 <li>
                     <label for="barang">Pilih Jenis Barang</label>
-                    :<select name="barang" id="barang">
+                    <span>:</span>
+                    <select name="barang" id="barang">
                         <option value="Peralatan Rumah Tangga">Peralatan Rumah Tanggal</option>
                         <option value="Peralatan Kantor">Peralatan Kantor</option>
                     </select>
                 </li>
                 <li>
                     <label for="beli_grosir">Pilih Jenis Pembelian</label>
-                    :<input type="radio" name="beli" value="Grosir" id="beli_grosir" required>
+                    <span>:</span>
+                    <input type="radio" name="beli" value="Grosir" id="beli_grosir" required>
                     <label for="beli_grosir">Grosir</label>
 
                     <input type="radio" name="beli" value="Ecer" id="beli_ecer" required>
@@ -58,7 +63,8 @@
 
                 <li>
                     <label for="nbarang">Masukan Nama Barang</label>
-                    :<select name="nbarang" id="nbarang">
+                    <span>:</span>
+                    <select name="nbarang" id="nbarang">
                         <option value="Kulkas">Kulkas == 1.500.000</option>
                         <option value="Kompor">Kompor == 500.000</option>
                         <option value="Lemari Besi">Lemari Besi == 2.500.000</option>
@@ -67,14 +73,16 @@
                 </li>
                 <li>
                     <label for="jbeli">Masukan Jumlah Beli</label>
-                    :<input type="number" name="jbeli" id="jbeli" min="1" required>
+                    <span>:</span>
+                    <input type="number" name="jbeli" id="jbeli" min="1" required>
                 </li>
 
                 <?php garis() ?>
 
                 <li>
                     <label for="alamat">Alamat Pengiriman</label>
-                    :<textarea name="alamat" id="alamat"></textarea>
+                    <span>:</span>
+                    <textarea name="alamat" id="alamat"></textarea>
                 </li>
 
                 <?php garis() ?>
