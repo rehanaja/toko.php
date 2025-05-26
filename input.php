@@ -27,62 +27,78 @@
 
                 <li>
                     <label for="pesan">No. Pesanan</label>
-                    <span>:</span>
-                    <input type="number" name="pesan" id="pesan" min="1" required>
+                    <div class="tab">
+                        <span>:</span>
+                        <input type="number" name="pesan" id="pesan" min="1" required>
+                    </div>
                 </li>
                 <li>
                     <label for="date">Tanggal</label>
-                    <span>:</span>
-                    <?= date("l, d-M-Y"); ?>
+                    <div class="tab">
+                        <span>:</span>
+                        <?= date("l, d-M-Y"); ?>
+                    </div>
                 </li>
                 
                 <?php garis() ?>
 
                 <li>
                     <label for="nama">Nama Konsumen</label>
-                    <span>:</span>
-                    <input type="text" name="nama" id="nama" required>
+                    <div class="tab">
+                        <span>:</span>
+                        <input type="text" name="nama" id="nama" required>
+                    </div>   
                 </li>
                 <li>
                     <label for="barang">Pilih Jenis Barang</label>
-                    <span>:</span>
-                    <select name="barang" id="barang">
-                        <option value="Peralatan Rumah Tangga">Peralatan Rumah Tanggal</option>
-                        <option value="Peralatan Kantor">Peralatan Kantor</option>
-                    </select>
+                    <div class="tab">
+                        <span>:</span>
+                        <select name="barang" id="barang">
+                            <option value="Peralatan Rumah Tangga">Peralatan Rumah Tanggal</option>
+                            <option value="Peralatan Kantor">Peralatan Kantor</option>
+                        </select>
+                    </div>
                 </li>
                 <li>
                     <label for="beli_grosir">Pilih Jenis Pembelian</label>
-                    <span>:</span>
-                    <input type="radio" name="beli" value="Grosir" id="beli_grosir" required>
-                    <label for="beli_grosir">Grosir</label>
+                    <div class="tab">
+                        <span>:</span>
+                        <input type="radio" name="beli" value="Grosir" id="beli_grosir" required>
+                        <label for="beli_grosir">Grosir</label>
 
-                    <input type="radio" name="beli" value="Ecer" id="beli_ecer" required>
-                    <label for="beli_ecer">Ecer</label>
+                        <input type="radio" name="beli" value="Ecer" id="beli_ecer" required>
+                        <label for="beli_ecer">Ecer</label>
+                    </div>
                 </li>
 
                 <li>
                     <label for="nbarang">Masukan Nama Barang</label>
-                    <span>:</span>
-                    <select name="nbarang" id="nbarang">
-                        <option value="Kulkas">Kulkas == 1.500.000</option>
-                        <option value="Kompor">Kompor == 500.000</option>
-                        <option value="Lemari Besi">Lemari Besi == 2.500.000</option>
-                        <option value="Kursi Kantor">Kursi Kantor == 1.500.000</option>
-                    </select>
+                    <div class="tab">
+                        <span>:</span>
+                        <select name="nbarang" id="nbarang">
+                            <option value="Kulkas">Kulkas == 1.500.000</option>
+                            <option value="Kompor">Kompor == 500.000</option>
+                            <option value="Lemari Besi">Lemari Besi == 2.500.000</option>
+                            <option value="Kursi Kantor">Kursi Kantor == 1.500.000</option>
+                        </select>
+                    </div>
                 </li>
                 <li>
                     <label for="jbeli">Masukan Jumlah Beli</label>
-                    <span>:</span>
-                    <input type="number" name="jbeli" id="jbeli" min="1" required>
+                    <div class="tab">
+                        <span>:</span>
+                        <input type="number" name="jbeli" id="jbeli" min="1" required>
+                    </div>
                 </li>
 
                 <?php garis() ?>
 
                 <li>
                     <label for="alamat">Alamat Pengiriman</label>
-                    <span>:</span>
-                    <textarea name="alamat" id="alamat"></textarea>
+                    <div class="tab">
+                        <span>:</span>
+                        <textarea name="alamat" id="alamat"></textarea>
+                    </div>
                 </li>
 
                 <?php garis() ?>

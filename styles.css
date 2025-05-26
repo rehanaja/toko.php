@@ -29,4 +29,11 @@ body {
   width: 400px;
   list-style: none;
   margin: 15px 0;
+  display: flex;
+  position: relative;
+}
+
+.tab {
+  position: absolute;
+  left: 45%;
 }
