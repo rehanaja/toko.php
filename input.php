@@ -35,7 +35,7 @@ $selectedNama = $_POST['nbarang'] ?? null;
             <?= "="; ?>
         <?php endfor; ?>
     </header>
-    <form class="main">
+    <form class="main" method="post">
         <div class="container">
             <ul>
 
