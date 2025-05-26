@@ -25,8 +25,6 @@ if (isset($_POST["barang"])) {
     }
     exit;
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -36,6 +34,34 @@ if (isset($_POST["barang"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toko Asyik Banget</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        function updateBarang() {
+  let barang = document.querySelector("barang").value;
+  let nBarang = document.querySelector("nbarang");
+
+  fetch("<?php echo $_SERVER['PHP_SELF']; ?>", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: "barang=" + encodeURIComponent(barang),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.text(); // karena server mengirim HTML, bukan JSON
+    })
+    .then((data) => {
+      nbarang.innerHTML =
+        '<option value="" disabled selected>--Pilih--</option>' + data;
+    })
+    .catch((error) => {
+      console.error("Fetch error:", error);
+    });
+}
+
+    </script>
 </head>
 <body>
     <header>
