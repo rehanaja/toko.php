@@ -105,8 +105,8 @@
 
                 <li>
                     <button type="submit">Proses</button>
-                    <span></span>
-                    <span></span>
+                    <div>|</div>
+                    <div>|</div>
                     <button type="Reset">Batal</button>
                 </li>
 
