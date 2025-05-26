@@ -4,7 +4,30 @@
         echo "-";
         $i++;
 } 
-}?>
+}
+$opsi = [
+    "Peralatan Rumah Tangga" => [
+        "Kulkas" => 1500000,
+        "Kompor" => 500000
+    ],
+    "Peralatan Kantor" => [
+        "Lemari Besi" => 2500000,
+        "Kursi Kantor" => 1500000
+    ]
+    ];
+
+if (isset($_POST["barang"])) {
+    $barang = $_POST["barang"];
+    if(array_key_exists($barang, $opsi)) {
+        foreach($opsi[$barang] as $value => $text) {
+            echo "<option value='$value'>$text</option>";
+        }
+    }
+    exit;
+}
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,6 +77,7 @@
                     <div class="tab">
                         <span>:</span>
                         <select name="barang" id="barang">
+                            <option value="" disabled selected>--Pilih--</option>
                             <option value="Peralatan Rumah Tangga">Peralatan Rumah Tanggal</option>
                             <option value="Peralatan Kantor">Peralatan Kantor</option>
                         </select>
@@ -76,10 +100,11 @@
                     <div class="tab">
                         <span>:</span>
                         <select name="nbarang" id="nbarang">
-                            <option value="Kulkas">Kulkas == 1.500.000</option>
+                            <option value="" disabled selected>--Pilih--</option>
+                            <!-- <option value="Kulkas">Kulkas == 1.500.000</option>
                             <option value="Kompor">Kompor == 500.000</option>
                             <option value="Lemari Besi">Lemari Besi == 2.500.000</option>
-                            <option value="Kursi Kantor">Kursi Kantor == 1.500.000</option>
+                            <option value="Kursi Kantor">Kursi Kantor == 1.500.000</option> -->
                         </select>
                     </div>
                 </li>
@@ -103,7 +128,7 @@
 
                 <?php garis() ?>
 
-                <li>
+                <li class="proses">
                     <button type="submit">Proses</button>
                     <div>|</div>
                     <div>|</div>
