@@ -16,15 +16,8 @@ $opsi = [
     ]
     ];
 
-if (isset($_POST["barang"])) {
-    $barang = $_POST["barang"];
-    if(array_key_exists($barang, $opsi)) {
-        foreach($opsi[$barang] as $value => $text) {
-            echo "<option value='$value'>$text</option>";
-        }
-    }
-    exit;
-}
+$selectedJenis = $_POST['barang'] ?? null;
+$selectedNama = $_POST['nbarang'] ?? null;
 ?>
 
 <!DOCTYPE html>
@@ -34,34 +27,6 @@ if (isset($_POST["barang"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toko Asyik Banget</title>
     <link rel="stylesheet" href="styles.css">
-    <script>
-        function updateBarang() {
-  let barang = document.querySelector("barang").value;
-  let nBarang = document.querySelector("nbarang");
-
-  fetch("<?php echo $_SERVER['PHP_SELF']; ?>", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body: "barang=" + encodeURIComponent(barang),
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.text(); // karena server mengirim HTML, bukan JSON
-    })
-    .then((data) => {
-      nbarang.innerHTML =
-        '<option value="" disabled selected>--Pilih--</option>' + data;
-    })
-    .catch((error) => {
-      console.error("Fetch error:", error);
-    });
-}
-
-    </script>
 </head>
 <body>
     <header>
@@ -102,10 +67,15 @@ if (isset($_POST["barang"])) {
                     <label for="barang">Pilih Jenis Barang</label>
                     <div class="tab">
                         <span>:</span>
-                        <select name="barang" id="barang">
+                        <select name="barang" id="barang" onchange="this.form.submit()">
                             <option value="" disabled selected>--Pilih--</option>
-                            <option value="Peralatan Rumah Tangga">Peralatan Rumah Tanggal</option>
-                            <option value="Peralatan Kantor">Peralatan Kantor</option>
+                            <!-- <option value="Peralatan Rumah Tangga">Peralatan Rumah Tanggal</option>
+                            <option value="Peralatan Kantor">Peralatan Kantor</option> -->
+                            <?php foreach ($opsi as $jenis => $items): ?>
+                                <option value="<?= $jenis ?>" <?= $selectedJenis === $jenis ? 'selected' : '' ?>>
+                                    <?= $jenis ?>
+                                </option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                 </li>
@@ -122,6 +92,7 @@ if (isset($_POST["barang"])) {
                 </li>
 
                 <li>
+                    <?php if ($selectedJenis): ?>
                     <label for="nbarang">Masukan Nama Barang</label>
                     <div class="tab">
                         <span>:</span>
@@ -131,8 +102,14 @@ if (isset($_POST["barang"])) {
                             <option value="Kompor">Kompor == 500.000</option>
                             <option value="Lemari Besi">Lemari Besi == 2.500.000</option>
                             <option value="Kursi Kantor">Kursi Kantor == 1.500.000</option> -->
+                            <?php foreach ($opsi[$selectedJenis] as $nama => $harga): ?>
+                                <option value="<?= $nama ?>" <?= $selectedNama === $nama ? 'selected' : '' ?>>
+                                    <?= $nama . " == " . number_format($harga, 0, ',', '.') ?>
+                                </option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
+                    <?php endif; ?>
                 </li>
                 <li>
                     <label for="jbeli">Masukan Jumlah Beli</label>
