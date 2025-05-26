@@ -37,3 +37,23 @@ body {
   position: absolute;
   left: 45%;
 }
+
+.proses {
+  align-items: center;
+}
+
+.proses button {
+  padding: 5px;
+}
+
+.proses button:first-child {
+  margin-right: 15px;
+}
+
+.proses div {
+  margin-right: 5px;
+}
+
+.proses button:last-child {
+  margin-left: 15px;
+}
