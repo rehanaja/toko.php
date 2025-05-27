@@ -35,7 +35,7 @@ $selectedNama = $_POST['nbarang'] ?? null;
             <?= "="; ?>
         <?php endfor; ?>
     </header>
-    <form class="main" method="post" action="proses.php">
+    <form class="main" method="post" action="">
         <div class="container">
             <ul>
                 <li>
@@ -125,7 +125,7 @@ $selectedNama = $_POST['nbarang'] ?? null;
                 <?php garis() ?>
 
                 <li class="proses">
-                    <button type="submit">Proses</button>
+                    <button type="submit" formaction="proses.php">Proses</button>
                     <div>|</div>
                     <div>|</div>
                     <button type="Reset">Batal</button>
