@@ -1,4 +1,4 @@
-<?php include "input.php"; ?>
+<?php include "input_logic.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -112,6 +112,5 @@
             </ul>
         </div>
     </form>
-    
 </body>
 </html>
