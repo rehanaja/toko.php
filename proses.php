@@ -1,4 +1,4 @@
-<?php include "input.php"; ?>
+<?php require_once 'input_logic.php';  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +14,7 @@
             <?= "="; ?>
         <?php endfor; ?>
     </header>
+        <form class="main">
         <div class="container">
             <ul>
                 <li>
@@ -86,6 +87,7 @@
                 </li>
             </ul>
         </div>
+        </form>
     
 </body>
 </html>
