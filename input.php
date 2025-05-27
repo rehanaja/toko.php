@@ -35,10 +35,9 @@ $selectedNama = $_POST['nbarang'] ?? null;
             <?= "="; ?>
         <?php endfor; ?>
     </header>
-    <form class="main" method="post">
+    <form class="main" method="post" action="proses.php">
         <div class="container">
             <ul>
-
                 <li>
                     <label for="pesan">No. Pesanan</label>
                     <div class="tab">
@@ -69,8 +68,6 @@ $selectedNama = $_POST['nbarang'] ?? null;
                         <span>:</span>
                         <select name="barang" id="barang" onchange="this.form.submit()">
                             <option value="" disabled selected>--Pilih--</option>
-                            <!-- <option value="Peralatan Rumah Tangga">Peralatan Rumah Tanggal</option>
-                            <option value="Peralatan Kantor">Peralatan Kantor</option> -->
                             <?php foreach ($opsi as $jenis => $items): ?>
                                 <option value="<?= $jenis ?>" <?= $selectedJenis === $jenis ? 'selected' : '' ?>>
                                     <?= $jenis ?>
@@ -98,10 +95,6 @@ $selectedNama = $_POST['nbarang'] ?? null;
                         <span>:</span>
                         <select name="nbarang" id="nbarang">
                             <option value="" disabled selected>--Pilih--</option>
-                            <!-- <option value="Kulkas">Kulkas == 1.500.000</option>
-                            <option value="Kompor">Kompor == 500.000</option>
-                            <option value="Lemari Besi">Lemari Besi == 2.500.000</option>
-                            <option value="Kursi Kantor">Kursi Kantor == 1.500.000</option> -->
                             <?php foreach ($opsi[$selectedJenis] as $nama => $harga): ?>
                                 <option value="<?= $nama ?>" <?= $selectedNama === $nama ? 'selected' : '' ?>>
                                     <?= $nama . " == " . number_format($harga, 0, ',', '.') ?>
@@ -137,7 +130,6 @@ $selectedNama = $_POST['nbarang'] ?? null;
                     <div>|</div>
                     <button type="Reset">Batal</button>
                 </li>
-
             </ul>
         </div>
     </form>
