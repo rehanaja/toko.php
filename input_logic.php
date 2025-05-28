@@ -18,4 +18,9 @@ $opsi = [
 
 $selectedJenis = $_POST['barang'] ?? null;
 $selectedNama = $_POST['nbarang'] ?? null;
+$nopesan = $_POST['pesan'] ?? null;
+$nama = $_POST['nama'] ?? null;
+$jenisBeli = $_POST['barang'] ?? null;
+$alamat = $_POST['alamat'] ?? null;
+$jumlahBeli = $_POST['jbeli'] ?? null;
 ?>
