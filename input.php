@@ -19,14 +19,14 @@
             <ul>
                 <li>
                     <label for="pesan">No. Pesanan</label>
-                    <div class="tab">
+                    <div class="tab" style="margin-left: -50px;">
                         <span>:</span>
                         <input type="number" name="pesan" id="pesan" min="1" required value="<?= htmlspecialchars($nopesan)?>">
                     </div>
                 </li>
                 <li>
                     <label for="date">Tanggal</label>
-                    <div class="tab">
+                    <div class="tab" style="margin-left: -50px;">
                         <span>:</span>
                         <?= date("l, d-M-Y"); ?>
                     </div>
