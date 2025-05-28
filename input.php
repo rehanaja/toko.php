@@ -21,7 +21,7 @@
                     <label for="pesan">No. Pesanan</label>
                     <div class="tab">
                         <span>:</span>
-                        <input type="number" name="pesan" id="pesan" min="1" required>
+                        <input type="number" name="pesan" id="pesan" min="1" required value="<?= htmlspecialchars($nopesan)?>">
                     </div>
                 </li>
                 <li>
@@ -38,7 +38,7 @@
                     <label for="nama">Nama Konsumen</label>
                     <div class="tab">
                         <span>:</span>
-                        <input type="text" name="nama" id="nama" required>
+                        <input type="text" name="nama" id="nama" required value="<?= htmlspecialchars($nama)?>">
                     </div>   
                 </li>
                 <li>
@@ -59,10 +59,10 @@
                     <label for="beli_grosir">Pilih Jenis Pembelian</label>
                     <div class="tab">
                         <span>:</span>
-                        <input type="radio" name="beli" value="Grosir" id="beli_grosir" required>
+                        <input type="radio" name="beli" value="Grosir" id="beli_grosir" <?= $jenisBeli === 'Grosir' ? 'checked' : '' ?> required>
                         <label for="beli_grosir">Grosir</label>
 
-                        <input type="radio" name="beli" value="Ecer" id="beli_ecer" required>
+                        <input type="radio" name="beli" value="Ecer" id="beli_ecer" <?= $jenisBeli === 'Ecer' ? 'checked' : '' ?> required>
                         <label for="beli_ecer">Ecer</label>
                     </div>
                 </li>
@@ -87,7 +87,7 @@
                     <label for="jbeli">Masukan Jumlah Beli</label>
                     <div class="tab">
                         <span>:</span>
-                        <input type="number" name="jbeli" id="jbeli" min="1" required>
+                        <input type="number" name="jbeli" id="jbeli" min="1" required value="<?= htmlspecialchars($jumlahBeli) ?>">
                     </div>
                 </li>
 
@@ -97,7 +97,7 @@
                     <label for="alamat">Alamat Pengiriman</label>
                     <div class="tab">
                         <span>:</span>
-                        <textarea name="alamat" id="alamat"></textarea>
+                        <textarea name="alamat" id="alamat" <?= htmlspecialchars($alamat) ?>></textarea>
                     </div>
                 </li>
 
