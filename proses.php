@@ -21,13 +21,14 @@
                     <label for="pesan">No. Pesanan</label>
                     <div class="tab">
                         <span>:</span>
-                        
+                        <?= $_POST["pesan"]; ?>
                     </div>
                 </li>
                 <li>
                     <label for="date">Tanggal</label>
                     <div class="tab">
                         <span>:</span>
+                        <?= date("l, d-M-Y") ?>
                     </div>
                 </li>
                 
@@ -37,46 +38,104 @@
                     <label for="nama">Nama Konsumen</label>
                     <div class="tab">
                         <span>:</span>
-                        
+                        <?= $_POST["nama"]; ?>
                     </div>   
                 </li>
+
                 <li>
-                    <label for="barang">Pilih Jenis Barang</label>
+                    <label for="alamat">Alamat Kirim</label>
                     <div class="tab">
                         <span>:</span>
-                        
-                    </div>
-                </li>
-                <li>
-                    <label for="beli_grosir">Pilih Jenis Pembelian</label>
-                    <div class="tab">
-                        <span>:</span>
-                        
+                        <?= $_POST["alamat"] ?>
                     </div>
                 </li>
 
                 <li>
-                    <label for="nbarang">Masukan Nama Barang</label>
+                    <label for="barang">Jenis Barang</label>
                     <div class="tab">
                         <span>:</span>
-                        
+                        <?= $_POST["barang"]; ?>
                     </div>
                 </li>
+                
                 <li>
-                    <label for="jbeli">Masukan Jumlah Beli</label>
+                    <label for="beli_grosir">Jenis Pembelian</label>
                     <div class="tab">
                         <span>:</span>
-                        
+                        <?= $_POST["beli"] ?>
+                    </div>
+                </li>
+
+                <li>
+                    <label for="nbarang">Nama Barang</label>
+                    <div class="tab">
+                        <span>:</span>
+                        <?= $_POST["nbarang"] ?>
+                    </div>
+                </li>
+
+                <li>
+                    <label for="nbarang">Harga Barang</label>
+                    <div class="tab">
+                        <span>:</span>
+                        <?php
+                        if($_POST["nbarang"] == "Kulkas") {
+                            $harga = 1500000;
+                            echo $harga;
+                        } else if ($_POST["nbarang"] == "Kompor") {
+                            $harga = 500000;
+                            echo $harga;
+                        } else if ($_POST["nbarang"] == "Lemari Besi") {
+                            $harga = 2500000;
+                            echo $harga;
+                        } else {
+                            $harga = 1500000;
+                            echo $harga;
+                        }
+                        ?>
+                    </div>
+                </li>
+
+                <li>
+                    <label for="jbeli">Jumlah Beli</label>
+                    <div class="tab">
+                        <span>:</span>
+                        <?= $_POST["jbeli"] ?>
                     </div>
                 </li>
 
                 <?php garis() ?>
 
                 <li>
-                    <label for="alamat">Alamat Pengiriman</label>
+                    <label for="jbeli">Subtotal Pembelian</label>
                     <div class="tab">
                         <span>:</span>
-                        
+                        <?php $subtotal = $harga * $_POST["jbeli"];
+                        echo $subtotal;
+                        ?>
+                    </div>
+                </li>
+
+                <li>
+                    <label for="diskon">Diskon</label>
+                    <div class="tab">
+                        <span>:</span>
+                        <?php if($_POST["beli"] === "Grosir" and $_POST["jbeli"] > 10 ) {
+                                $diskon = 35/100 * $subtotal;
+                            } else if($_POST["beli"] === "Grosir" and $_POST["jbeli"] <= 9) {
+                                $diskon = 25/100 * $subtotal;
+                            } else if($_POST["beli"] === "Ecer" and $_POST["jbeli"] < 10) {
+                                $diskon = 10/100 * $subtotal;
+                            } ?>
+                        <?= $diskon; ?>
+                    </div>
+                </li>
+
+                <li>
+                    <label for="bayar">Total Yang Harus Dibayar</label>
+                    <div class="tab">
+                        <span>:</span>
+                        <?= $subtotal - $diskon ?>
                     </div>
                 </li>
 
