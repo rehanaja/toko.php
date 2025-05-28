@@ -19,14 +19,14 @@
             <ul>
                 <li>
                     <label for="pesan">No. Pesanan</label>
-                    <div class="tab">
+                    <div class="tab" style="margin-left: -50px;">
                         <span>:</span>
                         <?= $_POST["pesan"]; ?>
                     </div>
                 </li>
                 <li>
                     <label for="date">Tanggal</label>
-                    <div class="tab">
+                    <div class="tab" style="margin-left: -50px;">
                         <span>:</span>
                         <?= date("l, d-M-Y") ?>
                     </div>
@@ -57,7 +57,7 @@
                         <?= $_POST["barang"]; ?>
                     </div>
                 </li>
-                
+
                 <li>
                     <label for="beli_grosir">Jenis Pembelian</label>
                     <div class="tab">
@@ -108,7 +108,7 @@
 
                 <li>
                     <label for="jbeli">Subtotal Pembelian</label>
-                    <div class="tab">
+                    <div class="tab" style="margin-left: 50px;">
                         <span>:</span>
                         <?php $subtotal = $harga * $_POST["jbeli"];
                         echo $subtotal;
@@ -118,7 +118,7 @@
 
                 <li>
                     <label for="diskon">Diskon</label>
-                    <div class="tab">
+                    <div class="tab" style="margin-left: 50px;">
                         <span>:</span>
                         <?php if($_POST["beli"] === "Grosir" and $_POST["jbeli"] > 10 ) {
                                 $diskon = 35/100 * $subtotal;
@@ -133,7 +133,7 @@
 
                 <li>
                     <label for="bayar">Total Yang Harus Dibayar</label>
-                    <div class="tab">
+                    <div class="tab" style="margin-left: 50px;">
                         <span>:</span>
                         <?= $subtotal - $diskon ?>
                     </div>
